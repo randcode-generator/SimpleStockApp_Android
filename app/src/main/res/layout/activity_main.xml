@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.simplestockapp.MainActivity">
+
+    <EditText
+        android:layout_width="300px"
+        android:layout_height="100px"
+        android:id="@+id/stockText"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/Add"
+        android:layout_toStartOf="@+id/Add"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:layout_width="120px"
+        android:layout_height="100px"
+        android:id="@+id/Add"
+        android:text="Add"
+        android:layout_alignTop="@+id/stockText"
+        android:layout_alignRight="@+id/stockList"
+        android:layout_alignEnd="@+id/stockList" />
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/stockList"
+        android:layout_below="@+id/Add"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
