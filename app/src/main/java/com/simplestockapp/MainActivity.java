@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
                         HttpClient httpclient = new DefaultHttpClient();
-                        HttpGet httpget = new HttpGet("http://192.168.1.43:3000/delete/" + map.get("symbol").toString());
+                        HttpGet httpget = new HttpGet("http://" + Config.IP_Address + "/delete/" + map.get("symbol").toString());
                         try {
                             httpclient.execute(httpget);
                         } catch (IOException e) {
@@ -83,13 +83,15 @@ public class MainActivity extends Activity {
 
     void setupSocketIO(final List<HashMap<String,String>> data) {
         try {
-            final Socket socket = IO.socket("http://192.168.1.43:3000");
+            final Socket socket = IO.socket("http://" + Config.IP_Address);
             socket.on("message", new Emitter.Listener() {
 
                 @Override
                 public void call(Object... args) {
                     JSONObject j = (JSONObject)args[0];
                     try {
+                        int s;
+                        s = 0;
                         String symbol = j.get("symbol").toString();
                         String price = j.get("price").toString();
                         String history = j.getString("history");
